@@ -1,0 +1,20 @@
+---
+
+- name: Install PPAs
+  apt_repository: repo={{item}} update_cache=yes
+  with_items:
+    - ppa:git-core/ppa
+
+- name: Install Packages
+  apt: name={{item}}
+  with_items:
+    - git
+    - meld
+
+      ##- name: Install Rust
+      ##  apt_repository: repo={{item}} update_cache=yes
+      ##  with_items:
+      ##    - ppa:git-core/ppa
+
+
+
