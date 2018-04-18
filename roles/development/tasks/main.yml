@@ -1,12 +1,18 @@
 ---
 
-- name: Install PPAs
-  apt_repository: repo={{item}} update_cache=yes
+#- name: Install PPAs
+#  apt_repository: repo={{item}} update_cache=yes
+#  with_items:
+#    - ppa:git-core/ppa
+#
+
+- name: Install Dev repos (yum install)
+  yum: name={{item}}
   with_items:
-    - ppa:git-core/ppa
+  - http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
 
 - name: Install Packages
-  apt: name={{item}}
+  yum: name={{item}}
   with_items:
     - git
     - meld

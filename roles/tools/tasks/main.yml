@@ -1,17 +1,21 @@
 ---
 
-##- name: Install PPAs
-##  apt_repository: repo={{item}} update_cache=yes
-##  with_items:
-##  - ppa:apt-fast/stable
-##  - ppa:webupd8team/terminix
-##  - ppa:ultradvorka/ppa
+#- name: Install yum repositories (yum repo)
+#  yum_repository: repo={{item}} update_cache=yes
+#  with_items:
+    ##  - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    ##  - ppa:webupd8team/terminix
+    ##  - ppa:ultradvorka/ppa
   ##      - ppa:tmsu/ppa
+
+- name: Install yum repositories (yum install)
+  yum: name={{item}} state=present # update_cache=yes
+  with_items:
+  - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
 - name: Install Packages
   yum: name={{item}} state=present # update_cache=yes
   with_items:
-  - tmux
     ##  - apt-fast
     ##  - cryfs
     ##  - di
@@ -19,5 +23,7 @@
     ##  - hh
     ##  - htop
     ####  - mc
+  - rsync
     ##  - tilix
     ##  - tmsu
+  - tmux

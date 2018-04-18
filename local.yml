@@ -6,7 +6,7 @@
       #    - sysconfig
       #    - communication
       #    - #browsers
-      #########    - development
+    - development
       #########    - media
       #########    - remote-tools
       #########    - editors
