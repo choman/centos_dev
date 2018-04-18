@@ -5,7 +5,7 @@
       #    - office
       #    - sysconfig
       #    - communication
-      #    - #browsers
+    - browsers
     - development
       #########    - media
       #########    - remote-tools
