@@ -2,13 +2,13 @@
   become: true
   roles:
     - tools
-    - office
-    - sysconfig
-    - communication
-    - browsers
-    - development
-    - media
-    - remote-tools
-    - editors
-    - network-tools
-    - snap
+      #    - office
+      #    - sysconfig
+      #    - communication
+      #    - #browsers
+      #########    - development
+      #########    - media
+      #########    - remote-tools
+      #########    - editors
+      #########    - network-tools
+      #########    - snap

@@ -1,23 +1,23 @@
 ---
 
-- name: Install PPAs
-  apt_repository: repo={{item}} update_cache=yes
-  with_items:
-  - ppa:apt-fast/stable
-  - ppa:webupd8team/terminix
-  - ppa:ultradvorka/ppa
+##- name: Install PPAs
+##  apt_repository: repo={{item}} update_cache=yes
+##  with_items:
+##  - ppa:apt-fast/stable
+##  - ppa:webupd8team/terminix
+##  - ppa:ultradvorka/ppa
   ##      - ppa:tmsu/ppa
  
 - name: Install Packages
-  apt: name={{item}} state=present # update_cache=yes
+  yum: name={{item}} state=present # update_cache=yes
   with_items:
-  - apt-fast
-  - cryfs
-  - di
-  - dtrx
-  - hh
-  - htop
-  - mc
-  - tilix
-  - tmsu
   - tmux
+    ##  - apt-fast
+    ##  - cryfs
+    ##  - di
+    ##  - dtrx
+    ##  - hh
+    ##  - htop
+    ####  - mc
+    ##  - tilix
+    ##  - tmsu
