@@ -12,7 +12,9 @@
   - http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
 
 - name: Install Packages
-  yum: name={{item}}
+  yum: 
+      name={{item}}
+      state=latest
   with_items:
     - git
     - meld
