@@ -50,11 +50,12 @@
     ##  - di
     ##  - dtrx
     ##  - hh
-    ##  - htop
-    ####  - mc
+  - htop
+  - mc
+  - neovim
   - rsync
-  - tilix
   - terminator
+  - tilix
     ##  - tmsu
   - tmux
-  - neovim
+
