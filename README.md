@@ -12,7 +12,7 @@ things seen may not be up to ansible standards.  Just FYI
 
 
 ```
-sudo ansible-pull -o -U https://github.com/choman/ansible.git
+sudo ansible-pull -o -U https://github.com/choman/centos_dev.git
 
 TESTING
 sudo ansible-playbook local.yml
