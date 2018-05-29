@@ -6,9 +6,9 @@
   when: editors.atom
 
 - name: Downloading atom
-  get_url: url=https://atom.io/download/deb dest=/tmp/atom.deb
+  get_url: url=https://atom.io/download/rpm dest=/tmp/atom.rpm force=yes
   when: editors.atom and not atom_stat.stat.exists
 
 - name: Installing atom
-  apt: deb=/tmp/atom.deb
+  yum: name=/tmp/atom.rpm state=latest
   when: editors.atom and not atom_stat.stat.exists

@@ -9,6 +9,6 @@
     - development
       #########    - media
       #########    - remote-tools
-      #########    - editors
+    - editors
       #########    - network-tools
       #########    - snap
