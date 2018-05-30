@@ -1,0 +1,28 @@
+---
+  
+  ####################
+  ## Install vivaldi
+  ####################
+  - stat: path=/usr/bin/vivaldi
+    register: vivaldi_stat
+
+  - name: Get lastest vivaldi version
+    script: get_vivaldi.sh
+    register: vivaldi_url
+    when: not vivaldi_stat.stat.exists
+
+  - name: Downloading vivaldi # {{vivaldi_url.stdout}}
+    get_url: 
+       url={{vivaldi_url.stdout}}
+       dest=/tmp/vivaldi.rpm
+       force=yes
+    when: not vivaldi_stat.stat.exists
+  
+  - name: Installing vivaldi
+    yum: 
+      name={{item}}
+      state=latest
+    with_items:
+      - /tmp/vivaldi.rpm
+    when: not vivaldi_stat.stat.exists
+
