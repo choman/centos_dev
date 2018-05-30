@@ -1,0 +1,61 @@
+---
+
+##- name: Install yum repositories (yum repo)
+##  yum_repository: 
+##      name={{item.name}}
+##      description={{item.desc}}
+##      baseurl={{item.url}}
+##  with_items:
+##    - {
+##       name: 'neovim', 
+##       desc: 'neovim', 
+##       url:  'https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo',
+##      }
+ ##   - {
+##       name: 'tilix', 
+##       desc: 'tilix terminal', 
+##       url:  'https://copr.fedorainfracloud.org/coprs/ivoarch/Tilix/repo/epel-7/'
+##      }
+    ##  - ppa:webupd8team/terminix
+    ##  - ppa:ultradvorka/ppa
+  ##      - ppa:tmsu/ppa
+
+- name: Install yum repositories (get_url)
+  get_url:
+    url={{item.url}}
+    dest={{item.dest}}
+    mode={{item.mode}}
+  with_items:
+    - {
+       dest: '/etc/yum.repos.d/tilix.repo',
+       url:  'https://copr.fedorainfracloud.org/coprs/ivoarch/Tilix/repo/epel-7/ivoarch-Tilix-epel-7.repo',
+       mode: '0644',
+      }
+    - {
+       dest: '/etc/yum.repos.d/neovim.repo',
+       url:  'https://copr.fedorainfracloud.org/coprs/dperson/neovim/repo/epel-7/dperson-neovim-epel-7.repo',
+       mode: '0644',
+      }
+
+- name: Install yum repositories (yum install)
+  yum: name={{item}} state=present # update_cache=yes
+  with_items:
+  - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ 
+- name: Install Packages
+  yum: name={{item}} state=latest # update_cache=yes
+  with_items:
+    ##  - apt-fast
+    ##  - cryfs
+    ##  - di
+    ##  - dtrx
+    ##  - hh
+  - htop
+  - mc
+  - neovim
+  - rsync
+  - terminator
+  - tilix
+    ##  - tmsu
+  - tmux
+
