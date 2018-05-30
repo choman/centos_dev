@@ -17,4 +17,14 @@
         src:  /tmp/firefox.tgz
         dest: /opt
     when: not firefox_stat.stat.exists
-  
+
+  - name: Removing old firefox
+    file: 
+       path: /usr/bin/firefox
+       state: absent
+          
+  - name: Setting up link
+    file: 
+       src: /opt/firefox/firefox
+       dest: /usr/bin/firefox
+       state: link
