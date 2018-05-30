@@ -1,36 +1,4 @@
 ---
-#
-  ####################
-  ## Install firefox (updated)
-  ####################
-  - stat: path=/opt/firefox/firefox
-    register: firefox_stat
-  
-  - name: Downloading firefox
-    get_url: 
-        url=https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US 
-        dest=/tmp/firefox.tgz
-    when: not firefox_stat.stat.exists
 
-  - name: Extract firefox.tgz into /opt
-    unarchive:
-        src:  /tmp/firefox.tgz
-        dest: /opt
-    when: not firefox_stat.stat.exists
-  
-  ####################
-  ## Install vivaldi
-  ####################
-  ##- stat: path=/usr/bin/vivaldi
-  ##  register: vivaldi_stat
-  ##
-  ##- name: Downloading vivaldi
-  ##  get_url: url=https://downloads.vivaldi.com/stable/vivaldi-stable-1.14.1077.60-1.x86_64.rpm dest=/tmp/vivaldi.rpm
-  ##  when: not vivaldi_stat.stat.exists
-  ##
-  ##- name: Installing vivaldi
-  ##  yum: name: {{item}}
-  ##  with_items:
-  ##    - /tmp/vivaldi.rpm
-  ##  when: not vivaldi_stat.stat.exists
-
+- include_tasks: firefox.yml
+- include_tasks: vivaldi.yml
