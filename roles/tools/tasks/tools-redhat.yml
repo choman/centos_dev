@@ -47,7 +47,7 @@
     ##  - hh
   - htop
   - mc
-  - neovim
+    ##  - neovim
   - rsync
   - terminator
     ##  - tmsu
