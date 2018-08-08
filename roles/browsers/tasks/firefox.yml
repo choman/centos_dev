@@ -5,18 +5,37 @@
   ####################
   - stat: path=/opt/firefox/firefox
     register: firefox_stat
+
+  - name: Get firefox current version
+    shell: "/opt/firefox/firefox --version | awk '{print $3}'"
+    register: current_version
+    when: firefox_stat.stat.exists
+
+  - name: Get firefox online version
+    shell: "wget --spider -S --max-redirect 0 'https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US' 2>&1 | sed -n '/Location: /{s|.*/firefox-\\(.*\\)\\.tar.*|\\1|p;q;}'"
+    register: latest_version
+    when: firefox_stat.stat.exists
+
+    ##  - name: FIREFOX {{ current_version.stdout }}
+    ##    shell: "/opt/firefox/firefox --version | awk '{print $3}'"
+    ##    when: firefox_stat.stat.exists
+
+    ##  - name: FIREFOX {{ latest_version.stdout }}
+    ##    shell: "/opt/firefox/firefox --version | awk '{print $3}'"
+    ##    when: firefox_stat.stat.exists
+  
   
   - name: Downloading firefox
     get_url: 
         url=https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US 
         dest=/tmp/firefox.tgz
-    when: not firefox_stat.stat.exists
+    when: not firefox_stat.stat.exists or current_version.stdout != latest_version.stdout
 
   - name: Extract firefox.tgz into /opt
     unarchive:
         src:  /tmp/firefox.tgz
         dest: /opt
-    when: not firefox_stat.stat.exists
+    when: not firefox_stat.stat.exists or current_version.stdout != latest_version.stdout
 
   - name: Removing old firefox
     file: 
