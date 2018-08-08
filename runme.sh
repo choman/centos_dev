@@ -4,4 +4,4 @@
 without_sudo=true
 without_sudo=false
 
-time $1 ansible-pull -o -U https://github.com/choman/ansible.git
+time sudo ansible-pull -o -U https://github.com/choman/centos_dev.git
