@@ -10,5 +10,8 @@ NOTE: current doesn't work, maybe add -f?
 
 
 # APPS
+- cryfs
+- gocryptfs
+- goto (github)
 - tmsu
 
