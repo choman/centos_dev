@@ -15,3 +15,6 @@ NOTE: current doesn't work, maybe add -f?
 - goto (github)
 - tmsu
 
+
+# ISSUES
+- do not like the root assumption
