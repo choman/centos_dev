@@ -61,3 +61,14 @@
          # GIT_PROMPT_THEME_FILE=~/.git-prompt-colors.sh
          # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
          source /opt/bash-git-prompt/gitprompt.sh
+
+- name: configuring git (root)
+  git_config:
+     name: push.default
+     scope: global
+     value: simple
+
+  git_config:
+     name: credential.helper
+     scope: global
+     value: cache
