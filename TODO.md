@@ -14,7 +14,16 @@ NOTE: current doesn't work, maybe add -f?
 - gocryptfs
 - goto (github)
 - tmsu
+- keybase
+- libreoffice
+- easyssh
+
 
 
 # ISSUES
 - do not like the root assumption
+
+
+# tmsu notes
+  - works by downloading the generic tmsu.tar'ball
+  - need to verify fuse and sqllite3
