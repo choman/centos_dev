@@ -18,12 +18,19 @@
   with_items:
     - git
     - meld
+    - python-pip
 
       ##- name: Install Rust
       ##  apt_repository: repo={{item}} update_cache=yes
       ##  with_items:
       ##    - ppa:git-core/ppa
       #
+
+- name: install packages (pip)
+  pip:
+      name={{ item }}
+  with_items:
+    - repositorytools
 
 - name: Install repos
   git:
