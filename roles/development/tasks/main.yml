@@ -19,6 +19,7 @@
     - git
     - meld
     - python-pip
+    - cloc
 
       ##- name: Install Rust
       ##  apt_repository: repo={{item}} update_cache=yes
