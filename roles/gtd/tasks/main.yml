@@ -1,0 +1,8 @@
+---
+
+- name: Install Packages
+  yum:
+      name: 
+          - task
+      state: latest
+
