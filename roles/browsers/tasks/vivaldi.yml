@@ -20,9 +20,8 @@
   
   - name: Installing vivaldi
     yum: 
-      name={{item}}
-      state=latest
-    with_items:
-      - /tmp/vivaldi.rpm
+      name: 
+          - /tmp/vivaldi.rpm
+      state: latest
     when: not vivaldi_stat.stat.exists
 
