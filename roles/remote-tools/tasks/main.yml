@@ -9,6 +9,7 @@
   ##      - ppa:tmsu/ppa
 
 - name: Install Packages
-  yum: name={{item}} state=latest # update_cache=yes
-  with_items:
-  - mosh
+  yum:
+      name:
+          - mosh
+      state: latest # update_cache=yes
