@@ -13,12 +13,15 @@
 
 - name: Install Packages
   yum: 
+      state: latest
       name:
           - git
           - meld
           - python-pip
           - cloc
-      state: latest
+          - cmake
+          - https://prerelease.keybase.io/keybase_amd64.rpm
+
 
       ##- name: Install Rust
       ##  apt_repository: repo={{item}} update_cache=yes
