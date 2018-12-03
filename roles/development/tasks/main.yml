@@ -7,9 +7,9 @@
 #
 
 - name: Install Dev repos (yum install)
-  yum: name={{item}}
-  with_items:
-  - http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+  yum:
+      name: 
+          - http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
 
 - name: Install Packages
   yum: 
@@ -28,9 +28,8 @@
 
 - name: install packages (pip)
   pip:
-      name={{ item }}
-  with_items:
-    - repositorytools
+      name:
+          - repositorytools
 
 - name: Install repos
   git:
