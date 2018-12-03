@@ -13,13 +13,12 @@
 
 - name: Install Packages
   yum: 
-      name={{item}}
-      state=latest
-  with_items:
-    - git
-    - meld
-    - python-pip
-    - cloc
+      name:
+          - git
+          - meld
+          - python-pip
+          - cloc
+      state: latest
 
       ##- name: Install Rust
       ##  apt_repository: repo={{item}} update_cache=yes

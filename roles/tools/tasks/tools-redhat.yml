@@ -33,23 +33,25 @@
       }
 
 - name: Install yum repositories (yum install)
-  yum: name={{item}} state=present # update_cache=yes
-  with_items:
-  - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  yum: 
+      name: 
+           - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      state: present # update_cache=yes
  
 - name: Install Packages
-  yum: name={{item}} state=latest # update_cache=yes
-  with_items:
-    ##  - apt-fast
-    ##  - cryfs
-    ##  - di
-    ##  - dtrx
-    ##  - hh
-  - htop
-  - mc
-    ##  - neovim
-  - rsync
-  - terminator
-    ##  - tmsu
-  - tmux
+  yum:
+      name: 
+          ##  - apt-fast
+          ##  - cryfs
+          ##  - di
+          ##  - dtrx
+          ##  - hh
+          - htop
+          - mc
+          ##  - neovim
+          - rsync
+          - terminator
+          ##  - tmsu
+          - tmux
+      state: present # update_cache=yes
 
