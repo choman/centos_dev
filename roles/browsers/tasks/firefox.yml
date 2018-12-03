@@ -7,9 +7,14 @@
     register: firefox_stat
 
   - name: Get firefox current version
-    shell: "/opt/firefox/firefox --version | awk '{print $3}'"
+#    shell: "/opt/firefox/firefox --version | awk '{print $3}'"
+    shell: "grep Version /opt/firefox/application.ini | head -1 |  cut -d= -f2"
     register: current_version
     when: firefox_stat.stat.exists
+
+  - debug:
+       var: current_version
+       verbosity: 2
 
   - name: Get firefox online version
     shell: "wget --spider -S --max-redirect 0 'https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=en-US' 2>&1 | sed -n '/Location: /{s|.*/firefox-\\(.*\\)\\.tar.*|\\1|p;q;}'"

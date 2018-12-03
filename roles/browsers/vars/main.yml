@@ -1,2 +1,10 @@
 ---
 # vars file for browsers
+# 
+##- name: Get firefox version
+##  shell: firefox --version
+##  register: firefox_version
+
+##################- name: Get vivaldi version
+##################  shell: vivaldi --version
+##################  register: vivaldi_version
