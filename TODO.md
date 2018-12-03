@@ -14,7 +14,6 @@ NOTE: current doesn't work, maybe add -f?
 - gocryptfs
 - goto (github)
 - tmsu
-- keybase
 - libreoffice
 - easyssh
 
