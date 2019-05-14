@@ -53,5 +53,6 @@
           - terminator
           ##  - tmsu
           - tmux
+          - p7zip-plugins
       state: present # update_cache=yes
 
