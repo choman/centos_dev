@@ -1,13 +1,28 @@
 ---
 
-- stat: path=/usr/bin/atom
-  register: atom_stat
-  when: editors.atom
+- name: setup rpm key - atom
+  rpm_key: 
+    key: https://packagecloud.io/AtomEditor/atom/gpgkey
+    state: present
 
-- name: Downloading atom
-  get_url: url=https://atom.io/download/rpm dest=/tmp/atom.rpm force=yes
-  when: editors.atom and not atom_stat.stat.exists
+- name: install yum repo - atom
+  yum_repository:
+    file: atom
+    name: atom
+    description: atom editor
+    mode: 0644
+    baseurl: https://packagecloud.io/AtomEditor/atom/el/7/$basearch
+    gpgcheck: yes
+    enabled: yes
 
-- name: Installing atom
-  yum: name=/tmp/atom.rpm state=latest
-  when: editors.atom and not atom_stat.stat.exists
+##- stat: path=/usr/bin/atom
+##  register: atom_stat
+##  when: editors.atom
+##
+##- name: Downloading atom
+##  get_url: url=https://atom.io/download/rpm dest=/tmp/atom.rpm force=yes
+##  when: editors.atom and not atom_stat.stat.exists
+##
+##- name: Installing atom
+##  yum: name=/tmp/atom.rpm state=latest
+##  when: editors.atom and not atom_stat.stat.exists
