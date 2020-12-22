@@ -25,7 +25,7 @@
     url={{item.url}}
     dest={{item.dest}}
     mode={{item.mode}}
-  with_items:
+  loop:
     - {
        dest: '/etc/yum.repos.d/tilix.repo',
        url:  'https://copr.fedorainfracloud.org/coprs/ivoarch/Tilix/repo/epel-7/ivoarch-Tilix-epel-7.repo',
